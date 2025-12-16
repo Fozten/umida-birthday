@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>С днём рождения, Умида!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(14px);
+            border-radius: 28px;
+            padding: 40px 30px;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+            animation: appear 1.2s ease forwards;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .from {
+            margin-top: 26px;
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 16px;
+            animation: pulse 1.6s infinite;
+        }
+
+        @keyframes appear {
+            from { opacity: 0; transform: translateY(35px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="icon">🎉</div>
+    <h1>С днём рождения!</h1>
+    <h2>Умида 💖</h2>
+
+    <p>
+        Желаю тебе счастья, крепкого здоровья и внутренней гармонии.
+        Пусть каждый день приносит радость, тепло и уверенность в себе.
+    </p>
+
+    <p>
+        Пусть мечты легко становятся реальностью,
+        а рядом всегда будут искренние и любящие люди.
+    </p>
+
+    <div class="from">
+        С любовью,<br>
+        <strong>Богдан</strong>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+window.onload = () => {
+    const duration = 2200;
+    const end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 7,
+            startVelocity: 40,
+            spread: 360,
+            origin: {
+                x: Math.random(),
+                y: Math.random() - 0.2
+            }
+        });
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    })();
+};
+</script>
+
+</body>
+</html>
